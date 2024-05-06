@@ -3,12 +3,9 @@ from suppliers.models import Supplier
 from products.models import Product
 
 
-class Inflow(models.Model):
-    supplier = models.ForeignKey(
-        Supplier, on_delete=models.PROTECT, related_name='inflows'
-    )
+class Outflow(models.Model):
     product = models.ForeignKey(
-        Product, on_delete=models.PROTECT, related_name='inflows'
+        Product, on_delete=models.PROTECT, related_name='outflows'
     )
     quantity = models.IntegerField()
     description = models.TextField(null=True, blank=True)
