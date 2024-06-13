@@ -2,21 +2,21 @@
 
 {% block content %}
     <div class="container mt-4">
-        <h3 class="display-6">Deletar Marca</h3>
+        <h3 class="display-6">Deletar Categoria</h3>
 
         <div class="card">
             <div class="card-body">
                 <p class="card-text">
-                    Tem certeza que deseja excluir a marca <strong>{{object.name}}</strong>
+                    Tem certeza que deseja excluir a categoria <strong>{{object.name}}</strong>
                 </p>
 
-                <form method="post">
+                <form method="post" action="">
                     {% csrf_token %}
 
                     <button type="submit" class="btn mt-3 btn-danger">Confirmar</button>
                 </form>
-                <a href=" {% url "brand_list" %}" class="btn btn-secondary mt-3">
-                    Voltar para a Lista de Marcas
+                <a href=" {% url "category_list" %}" class="btn btn-secondary mt-3">
+                    Voltar para a Lista de Categorias
                 </a>
             </div>
         </div>
