@@ -1,0 +1,24 @@
+ainda falta
+
+entradas de produtos
+saida de produtos
+
+(CRUD) produtos
+Dashboard
+
+
+
+
+-------------------
+métricas
+
+quantidades de produtos
+custo do estoque 
+valor de vendas
+lucro do estoque
+
+--
+quantidade de vendas
+produtos vendidos
+valor de vendas
+lucro das vendas
