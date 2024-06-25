@@ -1,5 +1,4 @@
 from django.db import models
-from suppliers.models import Supplier
 from products.models import Product
 
 
@@ -9,7 +8,7 @@ class Outflow(models.Model):
     )
     quantity = models.IntegerField()
     description = models.TextField(null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=False)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:

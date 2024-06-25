@@ -3,11 +3,8 @@ ainda falta
 entradas de produtos
 saida de produtos
 
-(CRUD) produtos
+
 Dashboard
-
-
-
 
 -------------------
 métricas

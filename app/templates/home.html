@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %}SGE - Home{% endblock title %}
+
+{% block content %}
+    <div class="row mt-4 justify-content-center">
+        <div class="col-md-6 text-center">
+            <h5 class="text-center mb-3">
+                Valor de vendas (Últimos 7 Dias)
+            </h5>
+            <canvas id="dailySalesChart"></canvas>
+        </div>
+        <div class="col-md-6 text-center">
+          <h5 class="text-center mb-3">
+              Quantidade de Vendas Diárias
+          </h5>
+          <canvas id="dailySalesPerDayChart"></canvas>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const dailySalesDataChart = document.getElementById('dailySalesChart')
+            const dailySalesData = {{daily_sales_date|safe}}
+            
+            new Chart(dailySalesDataChart, {
+                type: 'line',
+                data: {
+                  labels: dailySalesData.dates,
+                  datasets: [{
+                    label: 'Valor em vendas',
+                    data: dailySalesData.values,
+                    borderWidth: 1,
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 2,
+                    tension: 0.1
+                  }]
+                },
+                options: {
+                  scales: {
+                    y: {
+                      beginAtZero: true
+                    }
+                  },
+                }
+              }
+            );
+
+            const dailySalesPerDayDataChart = document.getElementById('dailySalesPerDayChart')
+            const dailySalesPErDayData = {{daily_sales_quantity_date|safe}}
+            new Chart(dailySalesPerDayDataChart, {
+              type: 'bar',
+              data: {
+                labels: dailySalesPErDayData.dates,
+                datasets: [{
+                  label: 'Quantidade de Vendas',
+                  data: dailySalesPErDayData.values,
+                  borderWidth: 1,
+                  backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                  borderColor: 'rgba(255, 99, 132, 1)',
+                }]
+              },
+              options: {
+                scales: {
+                  y: {
+                    min: 0,
+                    stepSize: 1
+                  }
+                }
+              }
+            });
+ 
+        });
+
+
+    </script>
+
+{% endblock content %}
